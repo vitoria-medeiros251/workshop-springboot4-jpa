@@ -9,25 +9,26 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.invillia.course.entities.User;
-import com.invillia.course.services.UserService;
+import com.invillia.course.entities.Category;
+import com.invillia.course.services.CategoryService;
+
 
 @RestController
-@RequestMapping(value = "/users")
-public class UserResource {
+@RequestMapping(value = "/categories")
+public class CategoryResource {
 	
 	@Autowired
-	private UserService service;
+	private CategoryService service;
 	
     @GetMapping
-	public ResponseEntity<List<User>> findAll(){
-		List<User> List = service.findAll();	
+	public ResponseEntity<List<Category>> findAll(){
+		List<Category> List = service.findAll();	
 		return ResponseEntity.ok().body(List);
 	}
 
   @GetMapping(value = "/{id}")
-   public ResponseEntity<User> findById(@PathVariable Long id) {
-    User obj = service.findById(id); 
+   public ResponseEntity<Category> findById(@PathVariable Long id) {
+    Category obj = service.findyById(id); 
     return ResponseEntity.ok().body(obj);
               
 }

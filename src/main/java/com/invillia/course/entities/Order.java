@@ -19,8 +19,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "tb_order ")
 public class Order implements Serializable{
- 
-	
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -40,6 +38,8 @@ public class Order implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "client_id")
 	private User client;
+
+
 	
 	public Order() {
     
