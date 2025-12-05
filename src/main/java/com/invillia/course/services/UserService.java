@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.invillia.course.entities.User;
 import com.invillia.course.repositories.UserRepository;
+import com.invillia.course.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class UserService {
@@ -24,7 +25,7 @@ public class UserService {
 		
 		public User findById(Long id) {
 			Optional<User> obj = repository.findById(id);
-			return obj.orElse(null);
+			return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 		}
 
 	
